@@ -1,80 +1,57 @@
-# MaestroTheme
+# MaestroTheme - Neovim Theme System
 
-Theme management for the DevOpsMaestro ecosystem.
+MaestroTheme is the theme management engine for the [DevOpsMaestro](https://github.com/rmkohlman/devopsmaestro) toolkit, powering all `nvp theme` commands. It provides 34+ embedded themes, the CoolNight parametric collection, and YAML-based theme configuration for Neovim.
 
-MaestroTheme is a standalone Go module providing Neovim colorscheme types, YAML parsing, filesystem storage, Lua code generation, and a built-in library of pre-defined themes. It also includes a parametric theme generator that creates new themes via HSL hue rotation from a base color.
+## Key Features
 
-## Installation
+- **34+ embedded themes** - Available immediately, no installation required
+- **CoolNight Collection** - 21 parametrically generated variants covering every color family
+- **Parametric generator** - Create custom CoolNight variants from a hue angle, hex color, or preset name
+- **Theme hierarchy** - Themes cascade through dvm's Workspace -> App -> Domain -> Ecosystem hierarchy
+- **YAML IaC** - Define, share, and apply themes as Infrastructure as Code
+- **Lua generation** - Generates lazy.nvim-compatible Lua files for instant Neovim integration
 
-```sh
-go get github.com/rmkohlman/MaestroTheme
+## Quick Install
+
+```bash
+# Install DevOpsMaestro (includes nvp)
+brew install rmkohlman/tap/devopsmaestro
+
+# Or install NvimOps only (no container runtime needed)
+brew install rmkohlman/tap/nvimops
+
+# Verify
+nvp version
 ```
 
 ## Quick Start
 
-### Parse a theme from YAML
+```bash
+# List all available themes
+nvp theme list
 
-```go
-import theme "github.com/rmkohlman/MaestroTheme"
+# Use a theme
+nvp theme use coolnight-ocean
 
-data := []byte(`
-apiVersion: devopsmaestro.io/v1
-kind: NvimTheme
-metadata:
-  name: my-theme
-  category: dark
-spec:
-  plugin:
-    repo: "folke/tokyonight.nvim"
-  style: night
-`)
+# Preview a theme in the terminal
+nvp theme preview coolnight-synthwave
 
-t, err := theme.ParseYAML(data)
-if err != nil {
-    log.Fatal(err)
-}
-fmt.Println(t.Name) // my-theme
+# Create a custom CoolNight variant (hue, hex, or preset)
+nvp theme create --from "280" --name my-purple --use
+
+# Install a theme from the embedded library
+nvp theme library install catppuccin-mocha --use
+
+# Generate Lua files for Neovim
+nvp generate
+
+# Apply a theme from a YAML file
+nvp apply -f theme.yaml
 ```
-
-### Use the embedded library
-
-```go
-import "github.com/rmkohlman/MaestroTheme/library"
-
-t, err := library.Get("tokyonight-night")
-if err != nil {
-    log.Fatal(err)
-}
-fmt.Println(t.Plugin.Repo) // folke/tokyonight.nvim
-
-themes, err := library.List()
-// returns all 34 embedded themes
-```
-
-### Generate a parametric theme
-
-```go
-import "github.com/rmkohlman/MaestroTheme/parametric"
-
-// Generate from a preset
-t, err := parametric.GeneratePreset("coolnight-synthwave")
-
-// Or generate from any hue (0-360)
-gen := parametric.NewGenerator()
-t := gen.GenerateFromHue(270.0, "my-purple", "Custom purple theme")
-```
-
-## Packages
-
-| Package | Import Path | Purpose |
-|---------|-------------|---------|
-| `theme` | `github.com/rmkohlman/MaestroTheme` | Core types, YAML parsing, store, Lua generation |
-| `library` | `github.com/rmkohlman/MaestroTheme/library` | Embedded theme library (34 themes) |
-| `parametric` | `github.com/rmkohlman/MaestroTheme/parametric` | HSL-based parametric theme generator |
 
 ## Documentation
 
-For comprehensive documentation, see the [MaestroTheme Documentation](https://rmkohlman.github.io/MaestroTheme/).
+Full documentation is available at [rmkohlman.github.io/MaestroTheme](https://rmkohlman.github.io/MaestroTheme/).
 
 ## Ecosystem
 
