@@ -28,28 +28,28 @@ type ThemePlugin struct {
 
 // ThemeYAML represents the full YAML structure with metadata.
 type ThemeYAML struct {
-	APIVersion string        `yaml:"apiVersion"`
-	Kind       string        `yaml:"kind"`
-	Metadata   ThemeMetadata `yaml:"metadata"`
-	Spec       ThemeSpec     `yaml:"spec"`
+	APIVersion string        `yaml:"apiVersion" json:"apiVersion"`
+	Kind       string        `yaml:"kind" json:"kind"`
+	Metadata   ThemeMetadata `yaml:"metadata" json:"metadata"`
+	Spec       ThemeSpec     `yaml:"spec" json:"spec"`
 }
 
 // ThemeMetadata contains theme metadata.
 type ThemeMetadata struct {
-	Name        string `yaml:"name"`
-	Description string `yaml:"description,omitempty"`
-	Author      string `yaml:"author,omitempty"`
-	Category    string `yaml:"category,omitempty"`
+	Name        string `yaml:"name" json:"name"`
+	Description string `yaml:"description,omitempty" json:"description,omitempty"`
+	Author      string `yaml:"author,omitempty" json:"author,omitempty"`
+	Category    string `yaml:"category,omitempty" json:"category,omitempty"`
 }
 
 // ThemeSpec contains the theme specification.
 type ThemeSpec struct {
-	Plugin       ThemePlugin       `yaml:"plugin"`
-	Style        string            `yaml:"style,omitempty"`
-	Transparent  bool              `yaml:"transparent,omitempty"`
-	Colors       map[string]string `yaml:"colors,omitempty"`
-	PromptColors map[string]string `yaml:"promptColors,omitempty"` // Starship prompt segment colors
-	Options      map[string]any    `yaml:"options,omitempty"`
+	Plugin       ThemePlugin       `yaml:"plugin" json:"plugin"`
+	Style        string            `yaml:"style,omitempty" json:"style,omitempty"`
+	Transparent  bool              `yaml:"transparent,omitempty" json:"transparent,omitempty"`
+	Colors       map[string]string `yaml:"colors,omitempty" json:"colors,omitempty"`
+	PromptColors map[string]string `yaml:"promptColors,omitempty" json:"promptColors,omitempty"` // Starship prompt segment colors
+	Options      map[string]any    `yaml:"options,omitempty" json:"options,omitempty"`
 }
 
 // =============================================================================
