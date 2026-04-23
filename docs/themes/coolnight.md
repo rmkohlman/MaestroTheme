@@ -1,146 +1,234 @@
-# CoolNight Collection
+# CoolNight Theme Collection
 
-The CoolNight Collection is a set of 21 parametrically generated themes designed for extended development sessions. All variants share consistent color relationships derived from the CoolNight Ocean base theme using HSL hue rotation.
+The CoolNight Collection is a set of 21 parametrically generated themes that provide consistent, professional color schemes optimized for extended development sessions.
 
 ---
 
 ## Overview
 
-CoolNight themes are standalone - they require no external Neovim plugin. Highlight groups are applied directly via Lua without a colorscheme plugin dependency.
+CoolNight themes are designed with:
 
-Design goals:
-
-- **Reduced eye strain** - Calibrated contrast ratios for long sessions
-- **Consistent syntax highlighting** - The same color semantics across all 21 variants
-- **Parametric generation** - All variants are mathematically derived from the Ocean base
-- **Semantic color stability** - Error (red), warning (yellow), and cursor colors are fixed across all variants
+- **Reduced eye strain** - Carefully calibrated contrast ratios
+- **Consistent syntax highlighting** - Uniform color semantics across themes
+- **Professional appearance** - Suitable for presentations and screen sharing
+- **Parametric generation** - Mathematically derived color relationships
+- **Wide variety** - 21 variants covering all color preferences
 
 ---
 
-## Color Science
+## Theme Philosophy
 
-### HSL Color Space
+### Color Science
 
-CoolNight uses HSL (Hue, Saturation, Lightness) for color generation:
+CoolNight themes use:
+- **HSL color space** for predictable hue relationships
+- **Consistent lightness** across variants for uniform readability
+- **Optimal contrast ratios** meeting WCAG accessibility standards
+- **Semantic color mapping** - similar code elements use related colors
 
-- **Hue** - A value from 0-360 degrees that determines the dominant color family
-- **Saturation** - Fixed at calibrated levels (40-70%) to ensure vibrancy without oversaturation
-- **Lightness** - Fixed per semantic role to maintain consistent contrast ratios
+### Design Principles
 
-The parametric generator rotates all non-semantic colors to a new hue while preserving their saturation and lightness relationships from the Ocean base palette.
-
-### Accessibility
-
-CoolNight themes maintain WCAG AA contrast ratios (4.5:1 minimum) between foreground text and background colors. Semantic colors (errors, warnings) are never rotated - they retain the original red, green, and yellow values regardless of theme hue.
+1. **Hierarchy** - Different code elements have clear visual importance
+2. **Harmony** - All colors work together aesthetically
+3. **Function** - Colors convey meaning (errors=red, strings=green, etc.)
+4. **Consistency** - Same color rules across all 21 variants
 
 ---
 
 ## Complete Collection
 
-### Blue Family
+### Blue Family (Ocean Tones)
 
 | Theme | Hue | Character | Best For |
 |-------|-----|-----------|----------|
-| `coolnight-arctic` | 200° | Ice blue, crisp and clean | TypeScript, Go, documentation |
-| `coolnight-ocean` | 210° | Deep blue, the default | General development, Python |
-| `coolnight-midnight` | 230° | Dark blue, intense focus | Late-night coding, C++ |
+| `coolnight-arctic` | 190° | Ice blue, crisp and clean | TypeScript, Go, documentation |
+| `coolnight-ocean` | 210° | Deep blue, default variant | General development, Python |
+| `coolnight-midnight` | 240° | Dark blue, intense focus | Late-night coding, C++ |
 
+**Preview:**
 ```bash
-nvp theme use coolnight-arctic
 nvp theme use coolnight-ocean
+nvp theme use coolnight-arctic
 nvp theme use coolnight-midnight
 ```
 
-### Purple Family
+### Purple Family (Creative Tones)
 
 | Theme | Hue | Character | Best For |
 |-------|-----|-----------|----------|
-| `coolnight-violet` | 280° | Soft violet, gentle on eyes | Web development, CSS |
-| `coolnight-synthwave` | 270° | Neon purple, retro vibes | JavaScript, creative coding |
+| `coolnight-violet` | 270° | Soft violet, gentle on eyes | Web development, CSS |
+| `coolnight-synthwave` | 280° | Neon purple, retro vibes | JavaScript, creative coding |
 | `coolnight-grape` | 290° | Rich grape, sophisticated | Rust, systems programming |
 
+**Preview:**
 ```bash
-nvp theme use coolnight-violet
 nvp theme use coolnight-synthwave
+nvp theme use coolnight-violet  
 nvp theme use coolnight-grape
 ```
 
-### Green Family
+### Green Family (Natural Tones)
 
 | Theme | Hue | Character | Best For |
 |-------|-----|-----------|----------|
-| `coolnight-forest` | 140° | Deep forest green, earthy | Bash scripts, DevOps |
-| `coolnight-matrix` | 150° | Digital green, high contrast | Terminal work, security |
-| `coolnight-mint` | 165° | Fresh mint, modern feel | React, Vue.js |
+| `coolnight-forest` | 110° | Forest green, earthy | Bash scripts, DevOps |
+| `coolnight-matrix` | 120° | Matrix green, high contrast | Terminal work, cybersec |
+| `coolnight-mint` | 150° | Fresh mint, modern | React, Vue.js, modern JS |
 
+**Preview:**
 ```bash
-nvp theme use coolnight-forest
 nvp theme use coolnight-matrix
+nvp theme use coolnight-forest
 nvp theme use coolnight-mint
 ```
 
-### Warm Family
+### Warm Family (Energy Tones)
 
 | Theme | Hue | Character | Best For |
 |-------|-----|-----------|----------|
-| `coolnight-ember` | 15° | Glowing ember, energetic | Java, Spring Boot |
-| `coolnight-sunset` | 25° | Warm orange, inviting | HTML, markup languages |
+| `coolnight-ember` | 20° | Glowing ember, energetic | Java, Spring Boot |
+| `coolnight-sunset` | 30° | Warm orange, inviting | HTML, markup languages |
 | `coolnight-gold` | 45° | Golden yellow, premium | Configuration files, YAML |
 
+**Preview:**
 ```bash
-nvp theme use coolnight-ember
 nvp theme use coolnight-sunset
+nvp theme use coolnight-ember
 nvp theme use coolnight-gold
 ```
 
-### Red/Pink Family
+### Red/Pink Family (Passionate Tones)
 
 | Theme | Hue | Character | Best For |
 |-------|-----|-----------|----------|
 | `coolnight-crimson` | 0° | Deep crimson, bold | Error handling, debugging |
-| `coolnight-sakura` | 330° | Cherry blossom, elegant | Design systems |
-| `coolnight-rose` | 350° | Rose pink, warm | Personal projects |
+| `coolnight-sakura` | 320° | Cherry blossom, elegant | Design systems, Figma |
+| `coolnight-rose` | 350° | Rose pink, romantic | Personal projects, blogs |
 
+**Preview:**
 ```bash
+nvp theme use coolnight-rose
 nvp theme use coolnight-crimson
 nvp theme use coolnight-sakura
-nvp theme use coolnight-rose
 ```
 
-### Monochrome Family
+### Monochrome Family (Focus Tones)
 
-Monochrome variants apply desaturation after hue generation, producing gray-scale or near-gray themes with minimal color distraction.
+| Theme | Character | Best For |
+|-------|-----------|----------|
+| `coolnight-mono-charcoal` | Charcoal gray, minimalist | Distraction-free coding |
+| `coolnight-mono-slate` | Slate gray, professional | Enterprise development |
+| `coolnight-mono-warm` | Warm gray, comfortable | Long coding sessions |
 
-| Theme | Saturation | Character | Best For |
-|-------|------------|-----------|----------|
-| `coolnight-mono-charcoal` | 0% | Pure grayscale | Distraction-free coding |
-| `coolnight-mono-slate` | 15% | Subtle blue-gray | Enterprise development |
-| `coolnight-mono-warm` | 15% | Subtle warm-gray | Long coding sessions |
-
+**Preview:**
 ```bash
-nvp theme use coolnight-mono-charcoal
 nvp theme use coolnight-mono-slate
+nvp theme use coolnight-mono-charcoal
 nvp theme use coolnight-mono-warm
 ```
 
-!!! note "Semantic colors in monochrome themes"
-    Error, warning, and cursor colors retain their original saturated values even in monochrome variants. This preserves the visual distinction for diagnostics.
-
-### Special Variants
-
-Variants inspired by well-known themes, adapted to the CoolNight parametric system.
+### Special Variants (Inspired Themes)
 
 | Theme | Inspiration | Character | Best For |
 |-------|-------------|-----------|----------|
-| `coolnight-nord` | Nord theme | Arctic blue-gray, clean | Nordic aesthetic |
-| `coolnight-dracula` | Dracula theme | Rich purple, dark gothic | High-contrast dark work |
-| `coolnight-solarized` | Solarized theme | Blue-cyan, precise | Academic, research |
+| `coolnight-nord` | Nord theme | Arctic blue-gray | Clean, Nordic aesthetic |
+| `coolnight-dracula` | Dracula theme | Rich purple | Dark, gothic feel |
+| `coolnight-solarized` | Solarized theme | Scientific precision | Academic, research |
 
+**Preview:**
 ```bash
 nvp theme use coolnight-nord
-nvp theme use coolnight-dracula
+nvp theme use coolnight-dracula  
 nvp theme use coolnight-solarized
 ```
+
+---
+
+## Parametric Generator
+
+### Create Custom Variants
+
+Generate your own CoolNight variant using a hue angle (0–360), a hex color, or a preset name:
+
+```bash
+# Create by hue angle
+nvp theme create --from "75" --name coolnight-lime     # Lime green
+nvp theme create --from "165" --name coolnight-teal    # Teal blue
+nvp theme create --from "315" --name coolnight-magenta # Hot magenta
+
+# Create from a hex color
+nvp theme create --from "#8B00FF" --name coolnight-violet
+
+# Create from a preset name
+nvp theme create --from "synthwave" --name my-synth
+
+# Use immediately after creation
+nvp theme use coolnight-lime
+```
+
+### Hue Reference
+
+| Hue Range | Color Family | Examples |
+|-----------|--------------|----------|
+| 0° - 30° | Red to Orange | crimson, ember, sunset |
+| 30° - 90° | Orange to Yellow | gold, warm yellows |
+| 90° - 150° | Yellow to Green | forest, matrix, mint |
+| 150° - 210° | Green to Blue | teal, arctic, ocean |
+| 210° - 270° | Blue to Purple | midnight, violet |
+| 270° - 330° | Purple to Pink | synthwave, grape, sakura |
+| 330° - 360° | Pink to Red | rose, back to crimson |
+
+### Advanced Generator Options
+
+The `--from` flag accepts a hue angle, hex color, or preset name. For full control, create a theme YAML and apply it:
+
+```bash
+# Use a specific hue angle
+nvp theme create --from "210" --name my-ocean
+
+# Use a hex color as the base
+nvp theme create --from "#0a7fa8" --name my-teal
+
+# Use a built-in preset name
+nvp theme create --from "ocean" --name ocean-custom
+
+# Activate immediately after creation
+nvp theme create --from "280" --name custom-purple --use
+```
+
+---
+
+## Color Palette Structure
+
+### Semantic Color Mapping
+
+Every CoolNight theme uses this consistent mapping:
+
+| Semantic Role | Purpose | Example Elements |
+|---------------|---------|------------------|
+| `bg` | Background | Editor background, panels |
+| `fg` | Foreground | Default text, variables |
+| `accent` | Primary accent | Cursor, selection, highlights |
+| `comment` | Comments | `// comments`, `# comments` |
+| `keyword` | Language keywords | `function`, `class`, `if`, `while` |
+| `string` | String literals | `"hello"`, `'world'` |
+| `function` | Function names | `myFunction()`, method calls |
+| `type` | Type annotations | `String`, `int`, class names |
+| `constant` | Constants | `true`, `false`, `null`, numbers |
+| `error` | Error indicators | Error squiggles, diagnostics |
+| `warning` | Warning indicators | Warning messages |
+| `info` | Information | Hints, info messages |
+| `selection` | Text selection | Selected text background |
+| `border` | UI borders | Window borders, splits |
+
+### Color Relationships
+
+The parametric generator maintains these relationships:
+
+- **Accent color** derived from primary hue
+- **Syntax colors** are hue variations (±30°, ±60°, etc.)
+- **UI colors** use desaturated versions of the primary hue
+- **Semantic colors** (error, warning) use appropriate hues regardless of theme
 
 ---
 
@@ -149,73 +237,98 @@ nvp theme use coolnight-solarized
 ### By Development Environment
 
 **Terminal-heavy workflows:**
-
 - `coolnight-matrix` - High contrast green
-- `coolnight-mono-charcoal` - Minimal, no distractions
+- `coolnight-mono-charcoal` - Minimal distractions
 
 **Web development:**
-
-- `coolnight-mint` - Modern, fresh
+- `coolnight-mint` - Modern, fresh feel
 - `coolnight-synthwave` - Creative, vibrant
 
 **Systems programming:**
-
 - `coolnight-midnight` - Deep focus
-- `coolnight-grape` - Sophisticated
+- `coolnight-grape` - Sophisticated, serious
 
 **Documentation writing:**
+- `coolnight-arctic` - Clean, readable
+- `coolnight-mono-warm` - Easy on eyes
 
-- `coolnight-arctic` - Clean and readable
-- `coolnight-mono-warm` - Easy on eyes for long reading
-
-**Presentations and screen sharing:**
-
+**Presentations/screen sharing:**
 - `coolnight-ocean` - Professional default
 - `coolnight-sunset` - Warm, welcoming
 
 ### By Time of Day
 
-**Morning:**
-
-- `coolnight-arctic` - Fresh and energizing
+**Morning coding:**
+- `coolnight-arctic` - Fresh, energizing
 - `coolnight-mint` - Bright start
 
-**Daytime:**
+**Daytime work:**
+- `coolnight-ocean` - Balanced, professional
+- `coolnight-forest` - Natural, comfortable
 
-- `coolnight-ocean` - Balanced and professional
-- `coolnight-forest` - Natural and comfortable
-
-**Evening:**
-
+**Evening sessions:**
 - `coolnight-sunset` - Warm transition
-- `coolnight-ember` - Cozy
+- `coolnight-ember` - Cozy coding
 
-**Late night:**
-
+**Late-night coding:**
 - `coolnight-midnight` - Deep focus
 - `coolnight-mono-slate` - Reduced stimulation
 
 ---
 
-## Integration with Theme Hierarchy
+## Integration Examples
 
-CoolNight variants work well with dvm's hierarchical theme system:
+### With Theme Hierarchy
 
 ```bash
-# Set a professional default at ecosystem level
-dvm set theme coolnight-ocean --ecosystem corporate
-
-# Use high contrast for security work at domain level
-dvm set theme coolnight-matrix --domain security
-
-# Set a creative theme for a specific app
-dvm set theme coolnight-synthwave --app creative-tool
-
-# Override for your personal workspace
-dvm set theme coolnight-midnight --workspace my-dev
+# Set different CoolNight variants by context
+dvm set theme coolnight-ocean --ecosystem corporate      # Professional default
+dvm set theme coolnight-matrix --domain security        # High contrast for security work
+dvm set theme coolnight-synthwave --app creative-tool   # Creative project gets creative theme
 ```
 
-See [Theme Hierarchy](../configuration/theme-hierarchy.md) for the full cascade model.
+### With Development Workflow
+
+```bash
+# Different themes for different branches
+git checkout main && dvm set theme coolnight-ocean
+git checkout feature/ui && dvm set theme coolnight-mint  
+git checkout hotfix/critical && dvm set theme coolnight-crimson
+```
+
+### Export for Team
+
+```bash
+# Export your favorite CoolNight variant
+dvm get nvim theme coolnight-synthwave -o yaml > team-theme.yaml
+
+# Team members apply it
+dvm apply -f team-theme.yaml
+```
+
+---
+
+## Technical Details
+
+### Color Space
+
+CoolNight uses **HSL (Hue, Saturation, Lightness)** color space:
+- **Hue**: 0-360° (color wheel position)  
+- **Saturation**: 40-70% (balanced vibrancy)
+- **Lightness**: 45-85% (optimal contrast)
+
+### Accessibility
+
+All CoolNight themes meet:
+- **WCAG AA** contrast ratios (4.5:1 minimum)
+- **Colorblind friendly** - not relying solely on color
+- **Reduced motion** - subtle animations only
+
+### Performance
+
+- **CSS custom properties** for easy browser integration
+- **Terminal color mapping** for consistent terminal themes
+- **Fast switching** - themes cached for instant preview
 
 ---
 
@@ -224,34 +337,36 @@ See [Theme Hierarchy](../configuration/theme-hierarchy.md) for the full cascade 
 ### Theme Not Applying
 
 ```bash
-# Check if the theme is available
-nvp theme list | grep coolnight
+# Check if theme exists
+nvp theme get | grep coolnight-ocean
 
-# View theme details
+# Verify theme content
 nvp theme get coolnight-ocean -o yaml
 
-# Regenerate Lua files
+# Regenerate configuration
 nvp generate
 ```
 
-### Colors Look Wrong in Neovim
+### Colors Look Wrong
 
 ```bash
-# Confirm true color support
-echo $COLORTERM
-# Expected: truecolor
+# Check terminal color support
+echo $COLORTERM  # Should show: truecolor
 
 # Check Neovim termguicolors
 nvim -c 'set termguicolors?' -c 'q'
+
+# Preview the theme to verify colors in terminal
+nvp theme preview coolnight-ocean
 ```
 
 ### Custom Variant Issues
 
 ```bash
-# Review the generated theme
+# Check what was generated
 nvp theme get my-custom-theme -o yaml
 
-# Regenerate after any changes
+# Regenerate Lua files after making changes
 nvp generate
 ```
 
@@ -259,6 +374,7 @@ nvp generate
 
 ## Next Steps
 
-- [Parametric Generator](parametric.md) - Create your own CoolNight variant
-- [Theme Hierarchy](../configuration/theme-hierarchy.md) - Use themes across your dvm hierarchy
-- [Commands Reference](../commands.md) - Full `nvp theme` command reference
+- [Theme Hierarchy](../configuration/theme-hierarchy.md) - Cascade themes through your organization
+- [Theme IaC](../advanced/theme-iac.md) - Infrastructure as Code for themes
+- [All Themes](overview.md) - Complete theme documentation
+- [WezTerm Integration](https://rmkohlman.github.io/MaestroTerminal/terminal/wezterm/) - Terminal theme integration

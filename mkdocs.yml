@@ -75,6 +75,8 @@ nav:
   - Configuration:
     - Theme Hierarchy: configuration/theme-hierarchy.md
     - Supported Colorscheme Plugins: configuration/supported-plugins.md
+  - Advanced:
+    - Theme IaC: advanced/theme-iac.md
   - Commands Reference: commands.md
   - YAML Reference:
     - NvimTheme: reference/nvim-theme.md
